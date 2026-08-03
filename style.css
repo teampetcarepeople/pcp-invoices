@@ -421,41 +421,35 @@ TOTALS
 
 .grand-total{
 
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding-top:20px;
-
-}
-.grand-total{
+    padding-top:24px;
 
     border-top:2px solid var(--gold);
 
 }
-.grand-total strong{
 
-    font-size:34px;
+.grand-total-label{
 
-    color:var(--charcoal);
+    font-size:12px;
 
-}
+    text-transform:uppercase;
 
-.grand-total span{
+    letter-spacing:3px;
 
-    font-size:18px;
+    color:#b88d14;
 
     font-weight:700;
 
+    margin-bottom:12px;
+
 }
 
-.grand-total strong{
+.grand-total-value{
 
-    font-size:28px;
+    font-size:40px;
 
     font-weight:800;
+
+    line-height:1;
 
 }
 /* ===========================
