@@ -558,15 +558,17 @@ color:#8b8b8b;
 
 footer{
 
-    margin-top:50px;
+    margin-top:60px;
 
-    padding-top:30px;
+    padding-top:24px;
 
     border-top:1px solid var(--border);
 
     text-align:center;
 
     color:#666;
+
+    font-size:15px;
 
     line-height:1.8;
 
