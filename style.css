@@ -146,6 +146,7 @@ padding:0;
     font-weight:800;
 
     line-height:1.1;
+        gap:20px
 
 }
 
@@ -165,8 +166,7 @@ padding:0;
 
     border-radius:14px;
 
-    padding-top:20px 
-    padding-bottom:20px;
+    padding:20px 20px;
 
     min-width:170px;
 
