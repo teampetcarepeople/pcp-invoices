@@ -241,3 +241,84 @@ CLIENT CARD
     letter-spacing:1px;
 
 }
+/* =====================================
+   SERVICES TABLE
+===================================== */
+
+.services{
+
+    margin-bottom:50px;
+
+}
+
+.service-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    overflow:hidden;
+
+    border-radius:16px;
+
+    border:1px solid #ececec;
+
+}
+
+.service-table thead{
+
+    background:var(--cream);
+
+}
+
+.service-table th{
+
+    text-align:left;
+
+    padding:18px;
+
+    font-size:13px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+    color:#555;
+
+}
+
+.service-table td{
+
+    padding:20px 18px;
+
+    border-top:1px solid #f1f1f1;
+
+    font-size:15px;
+
+}
+
+.service-table tbody tr{
+
+    transition:.2s;
+
+}
+
+.service-table tbody tr:hover{
+
+    background:#fafafa;
+
+}
+
+.amount{
+
+    font-weight:700;
+
+    text-align:right;
+
+}
+
+.service-table th:last-child{
+
+    text-align:right;
+
+}
