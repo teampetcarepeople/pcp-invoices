@@ -1,70 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PetCare People Invoice</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PetCare People Invoice</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<div class="page">
-<header>
-<div class="brand">
-<img src="assets/logo.png" alt="Logo" class="logo">
-</div>
-<div class="title">
-<h1>INVOICE</h1>
-<div class="pill">{{Invoice Number}}</div>
-<div class="date">📅 {{Invoice Date}}</div>
-</div>
-</header>
 
-<section class="card">
-<h3>BILL TO</h3>
-<p><strong>{{Client Name}}</strong></p>
-<p>Parent of {{Pets}}</p>
-<p>{{Client Phone}}</p>
-<p>{{Client Address}}</p>
-</section>
+<div class="invoice">
 
-<table>
-<thead><tr><th>Service</th><th>Days</th><th>Night Charge</th><th>Total</th></tr></thead>
-<tbody>
-<tr><td>{{Service 1}}</td><td>{{Days 1}}</td><td>{{Night Charge 1}}</td><td>{{Total 1}}</td></tr>
-<tr><td>{{Service 2}}</td><td>{{Days 2}}</td><td>{{Night Charge 2}}</td><td>{{Total 2}}</td></tr>
-<tr><td>{{Service 3}}</td><td>{{Days 3}}</td><td>{{Night Charge 3}}</td><td>{{Total 3}}</td></tr>
-<tr><td>{{Service 4}}</td><td>{{Days 4}}</td><td>{{Night Charge 4}}</td><td>{{Total 4}}</td></tr>
-<tr><td>{{Service 5}}</td><td>{{Days 5}}</td><td>{{Night Charge 5}}</td><td>{{Total 5}}</td></tr>
-</tbody>
-</table>
+    <!-- HEADER GOES HERE -->
 
-<section class="summary">
-<div><span>Subtotal</span><strong>{{Sub Total}}</strong></div>
-<div><span>Additional Charges</span><strong>{{Additional Charges}}</strong></div>
-<div class="note-line"></div>
-<div><span>Discount</span><strong>- {{Discount}}</strong></div>
-<div class="grand"><span>Grand Total</span><strong>{{Grand Total}}</strong></div>
-</section>
+    <!-- CLIENT CARD GOES HERE -->
 
-<div class="bottom">
-<section class="card">
-<h3>PAYMENT DETAILS</h3>
-<p>Payment via UPI to</p>
-<p><strong>+91 XXXXX XXXXX</strong></p>
-<p>Payment Date: {{Payment Date}}</p>
-<div class="qr">QR CODE</div>
-</section>
+    <!-- SERVICE TABLE GOES HERE -->
 
-<section class="card">
-<h3>NOTES</h3>
-<p>{{Notes}}</p>
-</section>
+    <!-- TOTALS GO HERE -->
+
+    <!-- PAYMENT GOES HERE -->
+
+    <!-- NOTES GO HERE -->
+
 </div>
 
-<footer>Thank you for trusting us with your furry family. ❤️</footer>
-</div>
 <script src="script.js"></script>
+
 </body>
+
 </html>
