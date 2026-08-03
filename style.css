@@ -4,9 +4,10 @@
     --cream:#f1e9d0;
     --taupe:#ddc09a;
     --charcoal:#2c2626;
-    --light:#f8f8f8;
 
-}
+    --radius:20px;
+
+    --padding:32px;
 
 *{
     margin:0;
