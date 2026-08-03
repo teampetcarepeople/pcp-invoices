@@ -8,6 +8,7 @@
     --radius:20px;
 
     --padding:32px;
+    --border:#ddc09a;
 
 *{
     margin:0;
@@ -59,7 +60,7 @@ p{
 
 .card{
 
-    border:1px solid #ececec;
+    border:1px solid var(--border);
 
     border-radius:16px;
 
@@ -272,7 +273,7 @@ CLIENT CARD
 
     border-radius:20px;
 
-    border:1px solid #ececec;
+    border:1px solid var(--border);
 
 }
 
@@ -355,7 +356,7 @@ TOTALS
 
     width:380px;
 
-    border:1px solid #ececec;
+    border:1px solid var(--border);
 
     border-radius:18px;
 
