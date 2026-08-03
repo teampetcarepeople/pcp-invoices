@@ -354,7 +354,7 @@ TOTALS
 
 .totals-card{
 
-    width:380px;
+    width:420px;
 
     border:1px solid var(--border);
 
@@ -372,7 +372,7 @@ TOTALS
 
     align-items:center;
 
-    margin-bottom:18px;
+    margin-bottom:22px;
 
 }
 
@@ -422,9 +422,11 @@ TOTALS
 
 .grand-total{
 
+    border-top:2px solid var(--gold);
+
     padding-top:24px;
 
-    border-top:2px solid var(--gold);
+    text-align:center;
 
 }
 
@@ -434,9 +436,9 @@ TOTALS
 
     text-transform:uppercase;
 
-    letter-spacing:3px;
+    letter-spacing:4px;
 
-    color:#b88d14;
+    color:#bf9314;
 
     font-weight:700;
 
@@ -446,13 +448,16 @@ TOTALS
 
 .grand-total-value{
 
-    font-size:40px;
+    font-size:46px;
 
     font-weight:800;
+
+    color:var(--charcoal);
 
     line-height:1;
 
 }
+
 /* ===========================
 BOTTOM SECTION
 =========================== */
