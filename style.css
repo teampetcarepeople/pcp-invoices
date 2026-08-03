@@ -435,3 +435,72 @@ TOTALS
     font-weight:800;
 
 }
+/* ===========================
+BOTTOM SECTION
+=========================== */
+
+.bottom-section{
+
+    display:grid;
+
+    grid-template-columns:320px 1fr;
+
+    gap:24px;
+
+}
+
+.payment-card{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.payment-method{
+
+    color:#777;
+
+    margin-top:12px;
+
+}
+
+.payment-card h3{
+
+    margin:8px 0 24px;
+
+    font-size:20px;
+
+}
+
+.qr-placeholder{
+
+    width:170px;
+
+    height:170px;
+
+    border:2px dashed var(--taupe);
+
+    border-radius:16px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#888;
+
+    margin-top:auto;
+
+}
+
+.notes-card p{
+
+    line-height:1.8;
+
+    color:#555;
+
+    min-height:220px;
+
+}
