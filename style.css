@@ -322,3 +322,102 @@ CLIENT CARD
     text-align:right;
 
 }
+/* ===================================
+TOTALS
+=================================== */
+
+.totals{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    margin-bottom:50px;
+
+}
+
+.totals-card{
+
+    width:380px;
+
+    border:1px solid #ececec;
+
+    border-radius:18px;
+
+    padding:28px;
+
+}
+
+.total-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:18px;
+
+}
+
+.total-row span{
+
+    color:#666;
+
+}
+
+.charge-note{
+
+    font-size:13px;
+
+    color:#999;
+
+    margin-top:-8px;
+
+    margin-bottom:20px;
+
+    min-height:18px;
+
+}
+
+.totals-card hr{
+
+    border:none;
+
+    border-top:1px solid #eee;
+
+    margin:24px 0;
+
+}
+
+.grand-total{
+
+    background:var(--gold);
+
+    border-radius:14px;
+
+    padding:20px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.grand-total span{
+
+    font-size:18px;
+
+    font-weight:700;
+
+}
+
+.grand-total strong{
+
+    font-size:28px;
+
+    font-weight:800;
+
+}
