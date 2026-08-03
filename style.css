@@ -79,3 +79,92 @@ padding:0;
 }
 
 }
+/* ===========================
+   HEADER
+=========================== */
+
+.header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    margin-bottom:48px;
+
+}
+
+.logo{
+
+    width:240px;
+
+    height:auto;
+
+}
+
+.invoice-title{
+
+    text-align:right;
+
+}
+
+.eyebrow{
+
+    color:var(--gold);
+
+    font-weight:700;
+
+    letter-spacing:4px;
+
+    font-size:13px;
+
+    margin-bottom:10px;
+
+}
+
+.invoice-title h1{
+
+    font-size:42px;
+
+    margin-bottom:20px;
+
+}
+
+.invoice-meta{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+}
+
+.meta-item{
+
+    background:var(--cream);
+
+    border-radius:14px;
+
+    padding:14px 20px;
+
+    min-width:170px;
+
+}
+
+.meta-item span{
+
+    display:block;
+
+    font-size:12px;
+
+    color:#666;
+
+    margin-bottom:4px;
+
+}
+
+.meta-item strong{
+
+    font-size:15px;
+
+}
