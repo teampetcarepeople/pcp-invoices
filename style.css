@@ -466,43 +466,74 @@ color:#8b8b8b;
 
 }
 
-/* ===========================
-BOTTOM SECTION
-=========================== */
 
-.bottom-section{
+/* ==================================
+   PAYMENT
+================================== */
 
-      margin-top:32px;
+.payment-section{
+
+    margin-top:50px;
 
 }
 
-.payment-card{
+.payment-divider{
 
-    border:none;
+    height:2px;
 
-    border-top:2px solid var(--gold);
+    background:var(--gold);
 
-    border-radius:0;
+    opacity:.6;
 
-    padding:32px 0 0 0;
+    margin-bottom:32px;
 
-    display:grid;
+}
 
-    grid-template-columns:1fr 170px;
+.payment-content{
+
+    display:flex;
+
+    justify-content:center;
 
     align-items:center;
 
-    gap:40px;
+    gap:80px;
 
 }
 
+.payment-info{
 
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.payment-help{
+
+    font-size:16px;
+
+    color:#666;
+
+    margin-bottom:14px;
+
+}
+
+.payment-info h3{
+
+    font-size:30px;
+
+    font-weight:700;
+
+    margin:0;
+
+}
 
 .qr-placeholder{
 
-    width:170px;
+    width:160px;
 
-    height:170px;
+    height:160px;
 
     border:2px dashed var(--taupe);
 
@@ -510,13 +541,11 @@ BOTTOM SECTION
 
     display:flex;
 
-    align-items:center;
-
     justify-content:center;
 
-    color:#888;
+    align-items:center;
 
-    margin-top:auto;
+    color:#888;
 
 }
 
