@@ -400,11 +400,11 @@ TOTALS
 
     display:block;
 
-    font-size:13px;
+    font-style:normal;
 
-    color:#777;
+font-size:12px;
 
-    font-style:italic;
+color:#8b8b8b;
 
 }
 
@@ -424,7 +424,7 @@ TOTALS
 
     border-top:2px solid var(--gold);
 
-    padding-top:24px;
+    padding-top:18px;
 
     text-align:center;
 
@@ -448,7 +448,15 @@ TOTALS
 
 .grand-total-value{
 
-    font-size:46px;
+    display:flex;
+
+    align-items:baseline;
+
+    justify-content:center;
+
+    gap:10px;
+
+    font-size:44px;
 
     font-weight:800;
 
