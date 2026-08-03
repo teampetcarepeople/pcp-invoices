@@ -504,3 +504,18 @@ BOTTOM SECTION
     min-height:220px;
 
 }
+footer{
+
+    text-align:center;
+
+    margin-top:50px;
+
+    padding-top:28px;
+
+    border-top:1px solid #ececec;
+
+    color:#777;
+
+    font-size:14px;
+
+}
