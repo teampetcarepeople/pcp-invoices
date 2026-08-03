@@ -197,7 +197,7 @@ CLIENT CARD
 
 .section-title{
 
-    color:#bf9314;
+    color:#c7a132;
 
     font-size:13px;
 
@@ -278,7 +278,7 @@ CLIENT CARD
 
 .service-table thead{
 
-    background:#fbf7ea;
+    background:white;
 
     border-bottom:2px solid var(--gold);
 
@@ -464,7 +464,11 @@ BOTTOM SECTION
 
 .bottom-section{
 
-    margin-top:32px;
+    display:grid;
+
+    grid-template-columns:320px 1fr;
+
+    gap:24px;
 
 }
 
@@ -472,13 +476,7 @@ BOTTOM SECTION
 
     display:flex;
 
-    justify-content:space-between;
-
-    align-items:center;
-
-    flex-direction:row;
-
-    gap:40px;
+    flex-direction:column;
 
 }
 
@@ -520,6 +518,13 @@ BOTTOM SECTION
 
 }
 
+.notes-card p{
+
+    line-height:1.8;
+
+    color:#555;
+
+    min-height:220px;
 
 }
 footer{
