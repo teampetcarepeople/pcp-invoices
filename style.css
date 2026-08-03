@@ -32,7 +32,7 @@ body{
 
     background:white;
 
-    padding:50px;
+    padding:64px;
 
     border:1px solid #f0ede6;
 
@@ -196,7 +196,7 @@ CLIENT CARD
 
 .section-title{
 
-    color:var(--gold);
+    color:#c7a132;
 
     font-size:13px;
 
@@ -263,11 +263,13 @@ CLIENT CARD
 
     width:100%;
 
-    border-collapse:collapse;
+    border-collapse:separate;
+
+    border-spacing:0;
 
     overflow:hidden;
 
-    border-radius:16px;
+    border-radius:20px;
 
     border:1px solid #ececec;
 
@@ -275,7 +277,9 @@ CLIENT CARD
 
 .service-table thead{
 
-    background:var(--cream);
+    background:white;
+
+    border-bottom:2px solid var(--gold);
 
 }
 
@@ -285,13 +289,15 @@ CLIENT CARD
 
     padding:18px;
 
-    font-size:13px;
+    font-size:12px;
 
     text-transform:uppercase;
 
-    letter-spacing:1px;
+    letter-spacing:2px;
 
-    color:#555;
+    color:#999;
+
+    font-weight:700;
 
 }
 
@@ -414,17 +420,25 @@ TOTALS
 
 .grand-total{
 
-    background:var(--gold);
-
-    border-radius:14px;
-
-    padding:20px;
-
     display:flex;
 
     justify-content:space-between;
 
     align-items:center;
+
+    padding-top:20px;
+
+}
+.grand-total{
+
+    border-top:2px solid var(--gold);
+
+}
+.grand-total strong{
+
+    font-size:34px;
+
+    color:var(--charcoal);
 
 }
 
@@ -520,7 +534,7 @@ footer{
 
     padding-top:28px;
 
-    border-top:1px solid #ececec;
+    border-top:1px dashed #e5e5e5;
 
     color:#777;
 
