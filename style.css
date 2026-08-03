@@ -168,3 +168,68 @@ padding:0;
     font-size:15px;
 
 }
+/* ===========================
+CLIENT CARD
+=========================== */
+
+.client-card{
+
+    margin-bottom:40px;
+
+}
+
+.section-title{
+
+    color:var(--gold);
+
+    font-size:13px;
+
+    letter-spacing:3px;
+
+    font-weight:700;
+
+    margin-bottom:16px;
+
+}
+
+.client-card h2{
+
+    font-size:32px;
+
+    margin-bottom:10px;
+
+}
+
+.pets{
+
+    color:#666;
+
+    margin-bottom:28px;
+
+}
+
+.client-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:30px;
+
+}
+
+.client-grid label{
+
+    display:block;
+
+    font-size:12px;
+
+    color:#999;
+
+    margin-bottom:6px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+}
