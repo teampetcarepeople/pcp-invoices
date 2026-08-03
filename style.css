@@ -169,6 +169,7 @@ padding:0;
     padding:20px 20px;
 
     min-width:170px;
+    margin-top:20px
 
 }
 
@@ -490,7 +491,7 @@ color:#8b8b8b;
 
     opacity:.5;
 
-    margin:0 auto 36px;
+    margin:0 auto 24px;
 
 }
 
@@ -559,7 +560,7 @@ color:#8b8b8b;
 
 footer{
 
-    margin-top:60px;
+    margin-top:80px;
 
     padding-top:24px;
 
