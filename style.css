@@ -338,9 +338,10 @@ CLIENT CARD
 
 }
 
-.service-table th:last-child{
-
-    text-align:right;
+.service-table th:last-child,
+td:last-child {
+    text-align: right;
+}
 
 }
 /* ===================================
