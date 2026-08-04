@@ -84,10 +84,7 @@ async function loadInvoice() {
             booking["Invoice Number"] || ""
         )
 
-        .replaceAll(
-    "{{Invoice Date}}",
-    formatDate()
-)
+
 
         .replaceAll(
             "{{Booking Line Total}}",
