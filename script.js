@@ -1,6 +1,30 @@
 const workerUrl =
   "https://pcp-invoice-api.team-petcarepeople.workers.dev";
+function formatCurrency(value) {
 
+    if (value === null || value === undefined || value === "") {
+        return "-";
+    }
+
+    return new Intl.NumberFormat("en-IN", {
+        style: "currency",
+        currency: "INR",
+        maximumFractionDigits: 0
+    }).format(value);
+
+}
+
+function formatDate(dateString) {
+
+    if (!dateString) return "";
+
+    return new Date(dateString).toLocaleDateString("en-IN", {
+        day: "numeric",
+        month: "short",
+        year: "numeric"
+    });
+
+}
 async function loadInvoice() {
 
     const params = new URLSearchParams(window.location.search);
@@ -41,8 +65,8 @@ async function loadInvoice() {
         .replaceAll(
             "{{Address}}",
             [
-                client["Address Line 1"],
-                client["Address Line 2"]
+                client["Address Line 2"],
+                client["Address Line 1"]
             ]
             .filter(Boolean)
             .join("<br>")
@@ -57,17 +81,17 @@ async function loadInvoice() {
 
         .replaceAll(
             "{{Invoice Date}}",
-            booking["Created At"] || ""
+            formatDate(booking["From Date"]) || ""
         )
 
         .replaceAll(
             "{{Booking Line Total}}",
-            booking["Booking Line Total"] ?? ""
+            formatCurrency(booking["Booking Line Total"])?? ""
         )
 
         .replaceAll(
             "{{Additional Charges}}",
-            booking["Additional Charge"] ?? "-"
+            formatCurrency(booking["Additional Charge"]) ?? "-"
         )
 
         .replaceAll(
@@ -77,7 +101,7 @@ async function loadInvoice() {
 
         .replaceAll(
             "{{Manual Discount}}",
-            booking["Manual Discount"] ?? "-"
+            formatCurrency(booking["Manual Discount"])?? "-"
         )
 
         .replaceAll(
