@@ -16,16 +16,18 @@ function formatCurrency(value) {
 
 function formatDate(dateString) {
 
-  function formatDate(dateString = new Date()) {
+    const date = dateString
+        ? new Date(dateString)
+        : new Date();
 
-    return new Date(dateString).toLocaleDateString("en-IN", {
+    return date.toLocaleDateString("en-IN", {
         day: "2-digit",
         month: "short",
         year: "numeric"
     });
 
 }
-    };
+
 
 
 async function loadInvoice() {
