@@ -16,15 +16,18 @@ function formatCurrency(value) {
 
 function formatDate(dateString) {
 
-    if (!dateString) return "";
+  function formatDate(dateString = new Date()) {
 
     return new Date(dateString).toLocaleDateString("en-IN", {
-        day: "numeric",
+        day: "2-digit",
         month: "short",
         year: "numeric"
     });
 
 }
+    };
+
+
 async function loadInvoice() {
 
     const params = new URLSearchParams(window.location.search);
@@ -80,8 +83,9 @@ async function loadInvoice() {
         )
 
         .replaceAll(
-            "{{Invoice Date}}",
-            formatDate(booking["From Date"]) || ""
+    "{{Invoice Date}}",
+    formatDate()
+) || ""
         )
 
         .replaceAll(
