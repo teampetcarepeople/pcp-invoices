@@ -1,16 +1,122 @@
-// Read values from the URL
+const workerUrl =
+  "https://pcp-invoice-api.team-petcarepeople.workers.dev";
 
-const params = new URLSearchParams(window.location.search);
+async function loadInvoice() {
 
-// Replace every {{Placeholder}} on the page
+    const params = new URLSearchParams(window.location.search);
 
-document.body.innerHTML = document.body.innerHTML.replace(
-    /\{\{(.*?)\}\}/g,
-    (_, key) => {
+    const bookingId = params.get("id");
 
-        const value = params.get(key.trim());
+    if (!bookingId) {
 
-        return value ?? "";
+        console.error("Missing booking id.");
+
+        return;
 
     }
-);
+
+    const response = await fetch(
+        `${workerUrl}/?id=${bookingId}`
+    );
+
+    const data = await response.json();
+
+    console.log(data);
+
+    const booking = data.booking.fields;
+    const client = data.client.fields;
+
+    const pets = data.pets
+        .map(p => p.fields["Pet Name"])
+        .join(", ");
+
+    // ---------- Replace placeholders ----------
+
+    document.body.innerHTML = document.body.innerHTML
+
+        .replaceAll("{{Client Name}}", client["Full Name"] || "")
+
+        .replaceAll("{{Phone}}", client["Phone"] || "")
+
+        .replaceAll(
+            "{{Address}}",
+            [
+                client["Address Line 1"],
+                client["Address Line 2"]
+            ]
+            .filter(Boolean)
+            .join("<br>")
+        )
+
+        .replaceAll("{{Pets}}", pets)
+
+        .replaceAll(
+            "{{Invoice Number}}",
+            booking["Invoice Number"] || ""
+        )
+
+        .replaceAll(
+            "{{Invoice Date}}",
+            booking["Created At"] || ""
+        )
+
+        .replaceAll(
+            "{{Booking Line Total}}",
+            booking["Booking Line Total"] ?? ""
+        )
+
+        .replaceAll(
+            "{{Additional Charges}}",
+            booking["Additional Charge"] ?? "-"
+        )
+
+        .replaceAll(
+            "{{Additional Charge Notes}}",
+            booking["Additional Charge Notes"] ?? ""
+        )
+
+        .replaceAll(
+            "{{Manual Discount}}",
+            booking["Manual Discount"] ?? "-"
+        )
+
+        .replaceAll(
+            "{{Total}}",
+            booking["Total"] ?? ""
+        );
+
+    // ---------- Build Services Table ----------
+
+    const tbody = document.querySelector("#services-body");
+
+    if (!tbody) return;
+
+    tbody.innerHTML = "";
+
+    data.services.forEach(item => {
+
+        const service = item.service.fields;
+
+        const bookingLine = item.booking.fields;
+
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+
+            <td>${service["Service Name"]}</td>
+
+            <td>${bookingLine["Number of Days"]}</td>
+
+            <td>${bookingLine["Night Charge Display"]}</td>
+
+            <td>₹${bookingLine["Line Subtotal"]}</td>
+
+        `;
+
+        tbody.appendChild(row);
+
+    });
+
+}
+
+loadInvoice();
