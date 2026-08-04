@@ -110,9 +110,9 @@ async function loadInvoice() {
         )
 
         .replaceAll(
-            "{{Total}}",
-            booking["Total"] ?? ""
-        );
+    "{{Total}}",
+    formatCurrency(booking["Total"]) ?? ""
+);
 
     // ---------- Build Services Table ----------
 
