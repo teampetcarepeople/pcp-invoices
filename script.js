@@ -154,7 +154,6 @@ data.services.forEach(item => {
     tbody.appendChild(row);
 
 });
-}
 
 loadInvoice();
 document
