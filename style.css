@@ -269,13 +269,15 @@ CLIENT CARD
 
 .services{
 
-    margin-bottom:50px;
+    margin-bottom:48px;
 
 }
 
 .service-table{
 
     width:100%;
+
+    table-layout:fixed;
 
     border-collapse:separate;
 
@@ -297,31 +299,31 @@ CLIENT CARD
 
 }
 
-.service-table th {
+.service-table th{
 
-    text-align: left;
+    padding:18px;
 
-    padding: 18px;
+    font-size:13px;
 
-    font-size: 13px;      /* or 14px if you prefer */
+    font-weight:700;
 
-    text-transform: uppercase;
+    color:var(--charcoal);
 
-    letter-spacing: 1.5px;
+    letter-spacing:1px;
 
-    color: #2c2626;       /* matches your invoice text */
-
-    font-weight: 700;
+    text-transform:uppercase;
 
 }
 
 .service-table td{
 
-    padding:20px 18px;
+    padding:18px;
 
-    border-top:1px solid #f1f1f1;
+    border-top:1px solid #f2f2f2;
 
-    font-size:15px;
+    font-size:16px;
+
+    vertical-align:middle;
 
 }
 
@@ -333,8 +335,7 @@ CLIENT CARD
 
 .service-table tbody tr:hover{
 
-    background:#fafafa;
-
+background:#fcfbf8;
 }
 
 .amount{
@@ -345,11 +346,28 @@ CLIENT CARD
 
 }
 
-.service-table th:last-child,
-.service-table td:last-child {
-    text-align: right;
-}
+.service-table th:nth-child(2),
+.service-table td:nth-child(2),
 
+.service-table th:nth-child(3),
+.service-table td:nth-child(3),
+
+.service-table th:nth-child(4),
+.service-table td:nth-child(4),
+
+.service-table th:nth-child(5),
+.service-table td:nth-child(5){
+
+    text-align:center;
+
+}
+.service-table th:last-child,
+.service-table td:last-child{
+
+       width:36%;
+ text-align:right;
+
+}
 
 /* ===================================
 TOTALS
