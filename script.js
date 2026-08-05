@@ -44,26 +44,34 @@ async function loadInvoice() {
         const pets = data.pets.map(p => p.fields["Pet Name"]).join(", ");
 
         // -------------------------
-        // Populate Invoice Details
-        // -------------------------
-        const setElementText = (id, text) => {
-            const el = document.getElementById(id);
-            if (el) el.textContent = text ?? "-";
-        };
+       // Populate Invoice Details
+// -------------------------
+const setElementText = (id, text) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = text ?? "-";
+};
 
-        setElementText("invoice-number", booking["Invoice Number"]);
-        setElementText("invoice-date", formatDate(booking["Invoice Date"]));
-        setElementText("client-name", client["Full Name"]);
-        setElementText("pets", Pets);
-        setElementText("phone", client["Phone"]);
-        setElementText("address", client["Address Line 2"]);
-        setElementText("address", client["Address Line 1"]);
+setElementText("invoice-number", booking["Invoice Number"]);
+setElementText("invoice-date", formatDate(booking["Invoice Date"]));
+setElementText("client-name", client["Full Name"]);
+setElementText("pets", pets); // <-- Fixed: lowercased 'pets'
 
-        setElementText("booking-line-total", formatCurrency(booking["Booking Line Total"]));
-        setElementText("additional-charges", formatCurrency(booking["Additional Charge"]));
-        setElementText("additional-charge-notes", booking["Additional Charge Notes"] || "");
-        setElementText("manual-discount", formatCurrency(booking["Manual Discount"]));
-        setElementText("grand-total", formatCurrency(booking["Total"]));
+// Phone
+const phone = client["Phone"];
+setElementText("phone", phone);
+
+// Address (combining Address Line 1 and Address Line 2)
+const address1 = client["Address Line 1"] || "";
+const address2 = client["Address Line 2"] || "";
+const fullAddress = [address1, address2].filter(Boolean).join(", ");
+
+setElementText("address", fullAddress);
+
+setElementText("booking-line-total", formatCurrency(booking["Booking Line Total"]));
+setElementText("additional-charges", formatCurrency(booking["Additional Charge"]));
+setElementText("additional-charge-notes", booking["Additional Charge Notes"] || "");
+setElementText("manual-discount", formatCurrency(booking["Manual Discount"]));
+setElementText("grand-total", formatCurrency(booking["Total"]));
 
         // -------------------------
         // Hide Empty Rows
