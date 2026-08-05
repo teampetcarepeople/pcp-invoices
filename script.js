@@ -130,17 +130,13 @@ async function loadInvoice() {
 
         const row = document.createElement("tr");
 
-        row.innerHTML = `
-
-            <td>${service["Service Name"]}</td>
-
-            <td>${bookingLine["Number of Days"]}</td>
-
-            <td>${bookingLine["Night Charge Display"]}</td>
-
-            <td>₹${bookingLine["Line Subtotal"]}</td>
-
-        `;
+       row.innerHTML = `
+    <td>${serviceName}</td>
+    <td>${basePrice}</td>
+    <td>${units}</td>
+    <td>${nightCharge}</td>
+    <td class="amount">${total}</td>
+`;
 
         tbody.appendChild(row);
 
