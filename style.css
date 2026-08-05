@@ -632,24 +632,22 @@ transform:translateX(-50%);
 
 }
 /* =====================================
-   A4 PRINT & PDF STYLES (MOBILE-READY)
+   A4 PRINT & PDF STYLES (NO CUTTING)
 ===================================== */
 
 @page {
     size: A4 portrait;
-    margin: 0; /* Removes mobile PDF print margins */
+    margin: 0;
 }
 
 @media print {
-    /* Lock layout dimensions */
     html, body {
-        width: 100% !important;
-        height: 100% !important;
-        max-height: 100vh !important;
-        margin: 0 !important;
+        width: 210mm !important;
+        height: 297mm !important;
+        margin: 0 auto !important;
         padding: 0 !important;
         background: white !important;
-        overflow: hidden !important; /* Prevents overflow onto page 2 */
+        overflow: visible !important; /* Prevents hard cropping */
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
     }
@@ -663,36 +661,31 @@ transform:translateX(-50%);
         border: none !important;
         border-radius: 0 !important;
         width: 100% !important;
-        max-width: 100% !important;
-        height: 100vh !important; /* Forces container to exactly 1 viewport height */
-        padding: 8mm 10mm !important; /* Tighter padding for mobile screen viewports */
+        max-width: 210mm !important;
         box-sizing: border-box !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: space-between !important;
+        padding: 10mm 12mm !important;
+        
+        /* Scale down the entire invoice proportionally to fit 1 page */
+        transform: scale(0.88);
+        transform-origin: top center;
     }
 
-    /* Tightened element margins for mobile PDF rendering */
+    /* Tighten gap spacing */
     .header { margin-bottom: 12px !important; }
-    .client-card { margin-bottom: 12px !important; padding: 12px !important; }
+    .client-card { margin-bottom: 12px !important; padding: 10px 14px !important; }
     .services { margin-bottom: 12px !important; }
     .totals { margin-bottom: 12px !important; }
-    .payment-section { margin-bottom: 12px !important; padding-top: 8px !important; }
+    .payment-section { margin-bottom: 12px !important; }
 
-    /* Compact table formatting */
+    /* Compact table rows */
     .service-table td, 
     .service-table th {
-        padding: 6px 8px !important;
-        font-size: 12px !important;
+        padding: 8px 10px !important;
+        font-size: 13px !important;
     }
 
     .payment-qr {
-        max-height: 70px !important; /* Scale down QR code slightly for print */
+        max-height: 65px !important;
         width: auto !important;
-    }
-
-    footer {
-        margin-top: 5px !important;
-        font-size: 11px !important;
     }
 }
