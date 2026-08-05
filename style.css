@@ -20,13 +20,17 @@ body{
 
     background:#f8f6f2;
 
-    overflow-x:auto;
+    font-family:'Manrope',sans-serif;
 
-    display:flex;
-
-    justify-content:center;
+    color:var(--charcoal);
 
     padding:24px;
+    display:flex;
+    justify-content:center;
+
+    overflow-x:auto;
+       -webkit-text-size-adjust:100%;
+
 
 }
 
