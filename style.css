@@ -140,7 +140,7 @@ padding:0;
     font-weight:800;
 
     line-height:1.1;
-        gap:20px
+        
 
 }
 
@@ -405,7 +405,6 @@ color:#2c2626;
 
 }
 
-}
 
 .totals-card hr{
 
@@ -557,38 +556,7 @@ footer{
 
 }
 
-@media print {
 
-    @page {
-        size: A4;
-        margin: 8mm;
-    }
-
-    body {
-
-        background: white;
-
-        margin: 0;
-
-    }
-
-    .invoice {
-
-        width: 100%;
-
-        margin: 0;
-
-        padding: 16mm;
-
-        border: none;
-
-        border-radius: 0;
-
-        box-shadow: none;
-
-        page-break-inside: avoid;
-
-    }
 #download-btn{
 
         display:none;
