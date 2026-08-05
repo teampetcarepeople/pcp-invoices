@@ -624,3 +624,38 @@ footer{
     }
 
 }
+#download-btn{
+
+    position:fixed;
+
+    bottom:20px;
+
+    right:20px;
+
+    background:#8D6E63;
+
+    color:white;
+
+    border:none;
+
+    border-radius:999px;
+
+    padding:14px 22px;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+    z-index:1000;
+
+}
+
+#download-btn:hover{
+
+    transform:translateY(-2px);
+
+}
