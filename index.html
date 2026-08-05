@@ -15,11 +15,11 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
+
+<body>
 <button id="download-btn">
     ⬇ Download PDF
 </button>
-<body>
-
 <div class="invoice">
 
     <header class="header">
@@ -30,7 +30,7 @@
 
     </div>
 
-    <div class="invoice-title">
+    <div class="invoice-header">
 
         <p class="eyebrow">INVOICE</p>
 
@@ -92,14 +92,21 @@
 
         <thead>
 
-            <tr>
-                <th>Service</th>
-                <th>Days</th>
-                <th>Night Charge</th>
-                <th>Total</th>
-            </tr>
+<tr>
 
-        </thead>
+    <th>Service</th>
+
+    <th>Base Price</th>
+
+    <th>Units</th>
+
+    <th>Night Charge</th>
+
+    <th>Total</th>
+
+</tr>
+
+</thead>
 
         <tbody id="services-body">
 
@@ -121,7 +128,7 @@
 
         </div>
 
-        <div class="total-row">
+        <div class="total-row" id="additional-charge-row">
 
     <span>Additional Charges</span>
 
@@ -129,13 +136,13 @@
 
 </div>
 
-<div class="charge-note">
+<div class="charge-note" id="charge-note-row">
 
     <span>{{Additional Charge Notes}}</span>
 
 </div>
 
-        <div class="total-row">
+        <div class="total-row" id="discount-row">
 
             <span>Discount</span>
 
@@ -176,10 +183,10 @@
             </div>
 
             <p class="payment-help">
-                Scan the QR code or pay to this number
+                Scan the QR code or send payment via UPI
             </p>
 
-            <h3>+91 6281844132</h3>
+            <h3>+91 62818 44132</h3>
 
         </div>
 
@@ -195,7 +202,11 @@
 
     <footer>
 
-    Thank you for trusting Petcare People with your furry family ❤️
+<p>
+
+Thank you for trusting PetCare People with your furry family ❤️
+
+</p>
 
 </footer>
 
