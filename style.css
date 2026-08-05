@@ -635,6 +635,10 @@ transform:translateX(-50%);
    A4 PRINT & PDF STYLES
 ===================================== */
 
+/* =====================================
+   A4 PRINT & PDF STYLES
+===================================== */
+
 @page {
     size: A4 portrait;
     margin: 0; /* Clear browser margins */
@@ -671,5 +675,18 @@ transform:translateX(-50%);
     .header, .client-card, .services, .totals, .payment-section, footer {
         page-break-inside: avoid;
         break-inside: avoid;
+    }
+
+    /* --- STEP 2: Compact section spacing --- */
+    .header { margin-bottom: 20px !important; }
+    .client-card { margin-bottom: 20px !important; }
+    .services { margin-bottom: 20px !important; }
+    .totals { margin-bottom: 20px !important; }
+    .payment-section { margin-bottom: 20px !important; }
+    
+    /* Reduce padding inside table cells */
+    .service-table td, 
+    .service-table th {
+        padding: 10px 12px !important;
     }
 }
