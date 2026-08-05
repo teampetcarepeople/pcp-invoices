@@ -124,19 +124,37 @@ async function loadInvoice() {
 
     data.services.forEach(item => {
 
-        const service = item.service.fields;
+    const service = item.service.fields;
 
-        const bookingLine = item.booking.fields;
+    const bookingLine = item.booking.fields;
 
-        const row = document.createElement("tr");
+    const row = document.createElement("tr");
 
-       row.innerHTML = `
-    <td>${serviceName}</td>
-    <td>${basePrice}</td>
-    <td>${units}</td>
-    <td>${nightCharge}</td>
-    <td class="amount">${total}</td>
-`;
+    const serviceName = service["Service Name"];
+
+    const basePrice = formatCurrency(
+        bookingLine["Service Base Price"]?.[0]
+    );
+
+    const units = bookingLine["Number of Days"];
+
+    const nightCharge = bookingLine["Night Charge Display"];
+
+    const total = formatCurrency(
+        bookingLine["Line Subtotal"]
+    );
+
+    row.innerHTML = `
+        <td>${serviceName}</td>
+        <td>${basePrice}</td>
+        <td>${units}</td>
+        <td>${nightCharge}</td>
+        <td class="amount">${total}</td>
+    `;
+
+    servicesBody.appendChild(row);
+
+});
 
         tbody.appendChild(row);
 
