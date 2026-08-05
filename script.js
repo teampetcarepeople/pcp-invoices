@@ -76,28 +76,25 @@ async function loadInvoice() {
         // Populate Invoice
         // -------------------------
 
-        document.getElementById("invoice-number").textContent =
-            booking["Invoice Number"] || "";
+       const ids = [
+    "invoice-number",
+    "invoice-date",
+    "client-name",
+    "pets",
+    "phone",
+    "address",
+    "booking-line-total",
+    "additional-charges",
+    "additional-charge-notes",
+    "manual-discount",
+    "grand-total"
+];
 
-        document.getElementById("invoice-date").textContent =
-            formatDate();
+ids.forEach(id => {
+    console.log(id, document.getElementById(id));
+});
 
-        document.getElementById("client-name").textContent =
-            client["Full Name"] || "";
-
-        document.getElementById("pets").textContent =
-            pets;
-
-        document.getElementById("phone").textContent =
-            client["Phone"] || "";
-
-        document.getElementById("address").innerHTML =
-            [
-                client["Address Line 2"],
-                client["Address Line 1"]
-            ]
-            .filter(Boolean)
-            .join("<br>");
+return;
 
         document.getElementById("booking-line-total").textContent =
             formatCurrency(
