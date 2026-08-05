@@ -68,9 +68,8 @@ async function loadInvoice() {
         // -------------------------
         setElementText("invoice-number", booking["Invoice Number"] || booking["Name"]);
         
-        const rawDate = booking["Invoice Date"] || booking["Created Time"];
-        
-        setElementText("invoice-date", formatDate(rawDate));
+        // Sets today's date on the invoice
+setElementText("invoice-date", formatDate());
         
         setElementText("client-name", client["Full Name"] || client["Display Name"]);
         setElementText("pets", pets);
@@ -145,8 +144,7 @@ async function loadInvoice() {
 }
 
 loadInvoice();
-// Sets today's date on the invoice
-setElementText("invoice-date", formatDate());
+
 const downloadBtn = document.getElementById("download-btn");
 if (downloadBtn) {
     downloadBtn.addEventListener("click", () => {
