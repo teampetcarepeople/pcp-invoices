@@ -1,3 +1,4 @@
+alert("SCRIPT LOADED");
 const workerUrl =
     "https://pcp-invoice-api.team-petcarepeople.workers.dev";
 
