@@ -34,7 +34,8 @@
 
         <p class="eyebrow">INVOICE</p>
 
-        <h1 id="invoice-number"</h1>
+        <!-- Fixed malformed h1 tag below -->
+        <h1 id="invoice-number"></h1>
 
         <div class="invoice-meta">
 
@@ -42,7 +43,7 @@
 
                 <span>Date</span>
 
-<strong id="invoice-date"></strong>
+                <strong id="invoice-date"></strong>
             </div>
 
         </div>
@@ -57,9 +58,10 @@
         BILL TO
     </div>
 
-<h2 id="client-name"></h2>
+    <h2 id="client-name"></h2>
     <p class="pets">
-Parent of <span id="pets"></span>    </p>
+        Parent of <span id="pets"></span>
+    </p>
 
     <div class="client-grid">
 
@@ -67,14 +69,14 @@ Parent of <span id="pets"></span>    </p>
 
             <label>Phone</label>
 
-<p id="phone"></p>
+            <p id="phone"></p>
         </div>
 
         <div>
 
             <label>Address</label>
 
-<p id="address"></p>
+            <p id="address"></p>
         </div>
 
     </div>
@@ -87,25 +89,25 @@ Parent of <span id="pets"></span>    </p>
 
         <thead>
 
-<tr>
+            <tr>
 
-    <th>Service</th>
+                <th>Service</th>
 
-    <th>Base Price</th>
+                <th>Base Price</th>
 
-    <th>Units</th>
+                <th>Units</th>
 
-    <th>Night Charge</th>
+                <th>Night Charge</th>
 
-    <th>Total</th>
+                <th>Total</th>
 
-</tr>
+            </tr>
 
-</thead>
+        </thead>
 
         <tbody id="services-body">
 
-</tbody>
+        </tbody>
 
     </table>
 
@@ -119,42 +121,42 @@ Parent of <span id="pets"></span>    </p>
 
             <span>Subtotal</span>
 
-<strong id="booking-line-total"></strong>
+            <strong id="booking-line-total"></strong>
         </div>
 
         <div class="total-row" id="additional-charge-row">
 
-    <span>Additional Charges</span>
+            <span>Additional Charges</span>
 
-<strong id="additional-charges"></strong>
-</div>
+            <strong id="additional-charges"></strong>
+        </div>
 
-<div class="charge-note" id="charge-note-row">
+        <div class="charge-note" id="charge-note-row">
 
-<span id="additional-charge-notes"></span>
-</div>
+            <span id="additional-charge-notes"></span>
+        </div>
 
         <div class="total-row" id="discount-row">
 
             <span>Discount</span>
 
-<strong>- <span id="manual-discount"></span></strong>
+            <strong>- <span id="manual-discount"></span></strong>
         </div>
 
         <hr>
 
         <div class="grand-total">
 
-    <div class="grand-total-label">
+            <div class="grand-total-label">
 
-        TOTAL DUE
+                TOTAL DUE
+
+            </div>
+
+            <div class="grand-total-value" id="grand-total"></div>
+        </div>
 
     </div>
-
-<div class="grand-total-value" id="grand-total"></div>
-    </div>
-
-</div>
 
 </section>
 
@@ -179,10 +181,10 @@ Parent of <span id="pets"></span>    </p>
         </div>
 
         <img
-    src="upi-qr.png"
-    alt="Scan to Pay"
-    class="payment-qr"
-/>
+            src="upi-qr.png"
+            alt="Scan to Pay"
+            class="payment-qr"
+        />
 
     </div>
 
@@ -190,13 +192,13 @@ Parent of <span id="pets"></span>    </p>
 
     <footer>
 
-<p>
+        <p>
 
-Thank you for trusting PetCare People with your furry family ❤️
+        Thank you for trusting PetCare People with your furry family ❤️
 
-</p>
+        </p>
 
-</footer>
+    </footer>
 
 </div>
 
