@@ -61,28 +61,12 @@ async function loadInvoice() {
     // Populate Invoice
     // -------------------------
 
-    document.getElementById("invoice-number").textContent =
-        booking["Invoice Number"] || "";
-
-    console.log(document.getElementById("invoice-date"));
-
-document.getElementById("invoice-date").textContent =
-    formatDate();
-
-    document.getElementById("client-name").textContent =
-        client["Full Name"] || "";
-
-    document.getElementById("pets").textContent =
-        pets;
-
-    document.getElementById("phone").textContent =
-        client["Phone"] || "";
-
-    document.getElementById("address").innerHTML =
-        [
-            client["Address Line 2"],
-            client["Address Line 1"]
-        ]
+    console.log("invoice-number", document.getElementById("invoice-number"));
+console.log("invoice-date", document.getElementById("invoice-date"));
+console.log("client-name", document.getElementById("client-name"));
+console.log("pets", document.getElementById("pets"));
+console.log("phone", document.getElementById("phone"));
+console.log("address", document.getElementById("address"));
         .filter(Boolean)
         .join("<br>");
 
