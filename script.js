@@ -1,3 +1,4 @@
+alert("NEW SCRIPT LOADED");
 const workerUrl =
   "https://pcp-invoice-api.team-petcarepeople.workers.dev";
 function formatCurrency(value) {
