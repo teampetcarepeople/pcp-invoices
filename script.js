@@ -1,4 +1,10 @@
-alert("SCRIPT LOADED");
+catch (err) {
+
+    console.error(err);
+
+    alert(err.stack);
+
+}
 const workerUrl =
     "https://pcp-invoice-api.team-petcarepeople.workers.dev";
 
