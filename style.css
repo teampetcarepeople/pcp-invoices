@@ -631,4 +631,45 @@ transform:translateX(-50%);
     transform:translateX(-50%) translateY(-2px);
 
 }
+/* =====================================
+   A4 PRINT & PDF STYLES
+===================================== */
 
+@page {
+    size: A4 portrait;
+    margin: 0; /* Clear browser margins */
+}
+
+@media print {
+    html, body {
+        width: 210mm;
+        height: 297mm;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        background: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Hide the download button during print/PDF export */
+    #download-btn {
+        display: none !important;
+    }
+
+    .invoice {
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+        width: 100% !important;
+        max-width: 210mm !important;
+        min-height: 297mm !important;
+        padding: 12mm 15mm !important; /* Internal page margin */
+        box-sizing: border-box !important;
+    }
+
+    /* Prevent awkward page breaks inside components */
+    .header, .client-card, .services, .totals, .payment-section, footer {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+}
