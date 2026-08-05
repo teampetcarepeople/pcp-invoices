@@ -149,3 +149,10 @@ async function loadInvoice() {
 }
 
 loadInvoice();
+document
+.getElementById("download-btn")
+.addEventListener("click",()=>{
+
+    window.print();
+
+});
