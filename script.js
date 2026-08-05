@@ -54,9 +54,10 @@ async function loadInvoice() {
         setElementText("invoice-number", booking["Invoice Number"]);
         setElementText("invoice-date", formatDate(booking["Invoice Date"]));
         setElementText("client-name", client["Full Name"]);
-        setElementText("pets", pets);
-        setElementText("phone", client["Phone Number"]);
-        setElementText("address", client["Address"]);
+        setElementText("pets", Pets);
+        setElementText("phone", client["Phone"]);
+        setElementText("address", client["Address Line 2"]);
+        setElementText("address", client["Address Line 1"]);
 
         setElementText("booking-line-total", formatCurrency(booking["Booking Line Total"]));
         setElementText("additional-charges", formatCurrency(booking["Additional Charge"]));
