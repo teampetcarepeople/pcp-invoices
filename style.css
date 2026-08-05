@@ -564,3 +564,25 @@ footer{
 
 }
 
+@media print {
+
+    @page {
+        size: A4;
+        margin: 10mm;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        background: white;
+    }
+
+    .invoice {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        box-shadow: none;
+        page-break-inside: avoid;
+    }
+
+}
