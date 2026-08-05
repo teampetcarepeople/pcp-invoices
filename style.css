@@ -533,25 +533,15 @@ color:#8b8b8b;
 
 }
 
-.qr-placeholder{
+.payment-qr {
 
-    width:120px;
+    width: 140px;
 
-    height:120px;
+    height: 140px;
 
-    border:2px dashed var(--taupe);
+    object-fit: contain;
 
-    border-radius:18px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    color:#888;
-
-    flex-shrink:0;
+    display: block;
 
 }
 
