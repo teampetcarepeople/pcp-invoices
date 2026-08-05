@@ -126,7 +126,7 @@ padding:0;
 
    
 
-    color:#b58b00;
+    color:#2c2626;
 
 
     font-weight:700;
@@ -180,7 +180,7 @@ padding:0;
 
     font-size:12px;
 
-    color:#666;
+    color:#2c2626;
 
     margin-bottom:4px;
 
@@ -225,7 +225,7 @@ CLIENT CARD
 
 .pets{
 
-    color:#666;
+    color:#2c2626;
 
     margin-bottom:28px;
 
@@ -247,7 +247,7 @@ CLIENT CARD
 
     font-size:12px;
 
-    color:#999;
+    color:#2c2626;
 
     margin-bottom:6px;
 
@@ -302,7 +302,7 @@ CLIENT CARD
 
     letter-spacing: 1.5px;
 
-    color: #2f2928;       /* matches your invoice text */
+    color: #2c2626;       /* matches your invoice text */
 
     font-weight: 700;
 
@@ -384,7 +384,7 @@ TOTALS
 
 .total-row span{
 
-    color:#666;
+    color:#2c2626;
 
 }
 
@@ -408,7 +408,7 @@ TOTALS
 
 font-size:12px;
 
-color:#8b8b8b;
+color:#2c2626;
 
 }
 
@@ -515,7 +515,7 @@ color:#8b8b8b;
 
     margin:18px 0 10px;
 
-    color:#666;
+    color:#2c2626;
 
     font-size:15px;
 
@@ -556,7 +556,7 @@ footer{
 
     text-align:center;
 
-    color:#666;
+    color:#2c2626;
 
     font-size:15px;
 
