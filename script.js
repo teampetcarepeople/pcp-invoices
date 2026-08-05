@@ -64,8 +64,10 @@ async function loadInvoice() {
     document.getElementById("invoice-number").textContent =
         booking["Invoice Number"] || "";
 
-    document.getElementById("invoice-date").textContent =
-        formatDate();
+    console.log(document.getElementById("invoice-date"));
+
+document.getElementById("invoice-date").textContent =
+    formatDate();
 
     document.getElementById("client-name").textContent =
         client["Full Name"] || "";
