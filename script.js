@@ -13,10 +13,16 @@ function formatCurrency(value) {
 }
 
 function formatDate(dateString) {
-    if (!dateString) return "-";
-    const cleanDate = Array.isArray(dateString) ? dateString[0] : dateString;
-    const date = new Date(cleanDate);
-    if (isNaN(date.getTime())) return "-";
+    // If no dateString is passed, default to today's date
+    const date = dateString ? new Date(Array.isArray(dateString) ? dateString[0] : dateString) : new Date();
+
+    if (isNaN(date.getTime())) {
+        return new Date().toLocaleDateString("en-IN", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric"
+        });
+    }
 
     return date.toLocaleDateString("en-IN", {
         day: "2-digit",
@@ -63,6 +69,7 @@ async function loadInvoice() {
         setElementText("invoice-number", booking["Invoice Number"] || booking["Name"]);
         
         const rawDate = booking["Invoice Date"] || booking["Created Time"];
+        
         setElementText("invoice-date", formatDate(rawDate));
         
         setElementText("client-name", client["Full Name"] || client["Display Name"]);
@@ -138,7 +145,8 @@ async function loadInvoice() {
 }
 
 loadInvoice();
-
+// Sets today's date on the invoice
+setElementText("invoice-date", formatDate());
 const downloadBtn = document.getElementById("download-btn");
 if (downloadBtn) {
     downloadBtn.addEventListener("click", () => {
