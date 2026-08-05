@@ -632,30 +632,28 @@ transform:translateX(-50%);
 
 }
 /* =====================================
-   A4 PRINT & PDF STYLES
-===================================== */
-
-/* =====================================
-   A4 PRINT & PDF STYLES
+   A4 PRINT & PDF STYLES (MOBILE-READY)
 ===================================== */
 
 @page {
     size: A4 portrait;
-    margin: 0; /* Clear browser margins */
+    margin: 0; /* Removes mobile PDF print margins */
 }
 
 @media print {
+    /* Lock layout dimensions */
     html, body {
-        width: 210mm;
-        height: 297mm;
-        margin: 0 auto !important;
+        width: 100% !important;
+        height: 100% !important;
+        max-height: 100vh !important;
+        margin: 0 !important;
         padding: 0 !important;
         background: white !important;
+        overflow: hidden !important; /* Prevents overflow onto page 2 */
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
     }
 
-    /* Hide the download button during print/PDF export */
     #download-btn {
         display: none !important;
     }
@@ -665,28 +663,36 @@ transform:translateX(-50%);
         border: none !important;
         border-radius: 0 !important;
         width: 100% !important;
-        max-width: 210mm !important;
-        min-height: 297mm !important;
-        padding: 12mm 15mm !important; /* Internal page margin */
+        max-width: 100% !important;
+        height: 100vh !important; /* Forces container to exactly 1 viewport height */
+        padding: 8mm 10mm !important; /* Tighter padding for mobile screen viewports */
         box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
     }
 
-    /* Prevent awkward page breaks inside components */
-    .header, .client-card, .services, .totals, .payment-section, footer {
-        page-break-inside: avoid;
-        break-inside: avoid;
-    }
+    /* Tightened element margins for mobile PDF rendering */
+    .header { margin-bottom: 12px !important; }
+    .client-card { margin-bottom: 12px !important; padding: 12px !important; }
+    .services { margin-bottom: 12px !important; }
+    .totals { margin-bottom: 12px !important; }
+    .payment-section { margin-bottom: 12px !important; padding-top: 8px !important; }
 
-    /* --- STEP 2: Compact section spacing --- */
-    .header { margin-bottom: 20px !important; }
-    .client-card { margin-bottom: 20px !important; }
-    .services { margin-bottom: 20px !important; }
-    .totals { margin-bottom: 20px !important; }
-    .payment-section { margin-bottom: 20px !important; }
-    
-    /* Reduce padding inside table cells */
+    /* Compact table formatting */
     .service-table td, 
     .service-table th {
-        padding: 10px 12px !important;
+        padding: 6px 8px !important;
+        font-size: 12px !important;
+    }
+
+    .payment-qr {
+        max-height: 70px !important; /* Scale down QR code slightly for print */
+        width: auto !important;
+    }
+
+    footer {
+        margin-top: 5px !important;
+        font-size: 11px !important;
     }
 }
