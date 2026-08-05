@@ -1,277 +1,191 @@
-:root{
-
-    --gold:#ffd44f;
-    --cream:#f1e9d0;
-    --taupe:#ddc09a;
-    --charcoal:#2c2626;
-    --border:#ddc09a;
-
-    --radius:20px;
-
+:root {
+    --gold: #ffd44f;
+    --cream: #f1e9d0;
+    --taupe: #ddc09a;
+    --charcoal: #2c2626;
+    --border: #ddc09a;
+    --radius: 20px;
 }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-
-    background:#f8f6f2;
-
-    font-family:'Manrope',sans-serif;
-
-    color:var(--charcoal);
-
-    padding:20px;
-    display:block;
-    justify-content:center;
-
-    overflow:auto;
-       -webkit-text-size-adjust:100%;
-
-
+body {
+    background: #f8f6f2;
+    font-family: 'Manrope', sans-serif;
+    color: var(--charcoal);
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+    -webkit-text-size-adjust: 100%;
 }
 
-.invoice{
+/* ===================================================
+   UNIFIED A4 CANVAS (SCREEN & PRINT ARE IDENTICAL)
+=================================================== */
 
-    width:210mm;
-
-    min-height:297mm;
-
-    margin:20px auto;
-
-    background:white;
-
-    padding:64px;
-
-    border:1px solid var(--border);
-
-    border-radius:24px;
-
+.invoice {
+    width: 210mm;
+    height: 297mm; /* Locked to exact A4 height */
+    max-height: 297mm;
+    margin: 0 auto;
+    background: white;
+    padding: 12mm 15mm; /* Balanced internal page margins */
+    border: 1px solid var(--border);
+    border-radius: 24px;
     box-shadow:
-        0 2px 8px rgba(0,0,0,.04),
-        0 20px 60px rgba(0,0,0,.06);
-
+        0 2px 8px rgba(0, 0, 0, .04),
+        0 20px 60px rgba(0, 0, 0, .06);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Spreads sections naturally so footer locks to bottom */
+    overflow: hidden;
 }
 
-h1,h2,h3,h4{
-
-    font-weight:800;
-
+h1, h2, h3, h4 {
+    font-weight: 800;
 }
 
-p{
-
-    line-height:1.6;
-
+p {
+    line-height: 1.5;
 }
 
-.card{
-
-    border:1px solid var(--border);
-
-    border-radius:16px;
-
-    padding:24px;
-
-    background:white;
-
+.card {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px 20px;
+    background: white;
 }
+
 /* ===========================
    HEADER
 =========================== */
 
-.header{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:flex-start;
-
-    gap:48px;
-
-    margin-bottom:48px;
-
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 32px;
+    margin-bottom: 24px;
 }
 
-.logo{
-
-    width:250px;
-
-    max-width:100%;
-
-    height:auto;
-
-    display:block;
-
+.logo {
+    width: 200px;
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
-.invoice-title{
-
-    text-align:right;
-
-    width:100%;
-
-    max-width:420px;
-
+.invoice-title {
+    text-align: right;
+    width: 100%;
+    max-width: 420px;
 }
 
-.eyebrow{
-
-   
-
-    color:#2c2626;
-
-
-    font-weight:700;
-
-    letter-spacing:4px;
-
-    font-size:13px;
-
-    margin-bottom:10px;
-
+.eyebrow {
+    color: #2c2626;
+    font-weight: 700;
+    letter-spacing: 4px;
+    font-size: 13px;
+    margin-bottom: 6px;
 }
 
-
-    .invoice-title h1{
-
-    font-size:40px;
-
-    font-weight:800;
-
-    line-height:1.1;
-
-    margin:0;
-
+.invoice-title h1 {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0;
 }
 
-
-
-.invoice-meta{
-
-    display:flex;
-
-    justify-content:flex-end;
-align-items:flex-start;
+.invoice-meta {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
 }
 
-.meta-item{
-
-    background:var(--cream);
-
-    border-radius:14px;
-
-    padding:14px 18px;
-
-    min-width:140px;
-    margin-top:20px;
-
+.meta-item {
+    background: var(--cream);
+    border-radius: 14px;
+    padding: 10px 16px;
+    min-width: 140px;
+    margin-top: 14px;
 }
 
-.meta-item span{
-
-    display:block;
-
-    font-size:12px;
-
-    color:#2c2626;
-
-    margin-bottom:4px;
-
+.meta-item span {
+    display: block;
+    font-size: 12px;
+    color: #2c2626;
+    margin-bottom: 2px;
 }
 
-.meta-item strong{
-
-    font-size:15px;
-
+.meta-item strong {
+    font-size: 15px;
 }
+
 /* ===========================
-CLIENT CARD
+   CLIENT CARD
 =========================== */
 
-.client-card{
-
-    margin-bottom:48px;
-
+.client-card {
+    margin-bottom: 20px;
+    padding: 16px 20px;
 }
 
-.section-title{
-
-    color:#c7a132;
-
-    font-size:13px;
-
-    letter-spacing:3px;
-
-    font-weight:700;
-
-    margin-bottom:16px;
-
+.section-title {
+    color: #c7a132;
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 700;
+    margin-bottom: 10px;
 }
 
-.client-card h2{
-
-    font-size:22px;
-
-    font-weight:700;
-
-    margin-bottom:8px;
-
-    line-height:1.2;
-
+.client-card h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    line-height: 1.2;
 }
 
-.pets{
-
-    font-size:22px;
-
-    font-weight:700;
-
-    color:var(--charcoal);
-
-    margin-bottom:28px;
-
-    line-height:1.2;
-
+.pets {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 16px;
+    line-height: 1.2;
 }
 
-.client-grid{
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:32px;
-
+/* Address column widened to 60% so text wraps fewer lines */
+.client-grid {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    gap: 20px;
 }
 
-.client-grid label{
-
-    display:block;
-
-    font-size:12px;
-
-    font-weight:700;
-
-    color:#7A6D5A;
-
-    margin-bottom:6px;
-
-    text-transform:uppercase;
-
-    letter-spacing:1px;
-
+.client-grid label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: #7A6D5A;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
-/* /* =====================================
+
+.client-grid p {
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* =====================================
    SERVICES TABLE
 ===================================== */
 
 .services {
-    margin-bottom: 48px;
+    margin-bottom: 20px;
 }
 
 .service-table {
@@ -280,7 +194,7 @@ CLIENT CARD
     border-collapse: separate;
     border-spacing: 0;
     overflow: hidden;
-    border-radius: 20px;
+    border-radius: 16px;
     border: 1px solid var(--border);
 }
 
@@ -290,8 +204,8 @@ CLIENT CARD
 }
 
 .service-table th {
-    padding: 16px 14px;
-    font-size: 13px;
+    padding: 12px 12px;
+    font-size: 12px;
     font-weight: 700;
     color: var(--charcoal);
     letter-spacing: 0.5px;
@@ -300,9 +214,9 @@ CLIENT CARD
 }
 
 .service-table td {
-    padding: 18px 14px;
+    padding: 12px 12px;
     border-top: 1px solid #f2f2f2;
-    font-size: 15px;
+    font-size: 13.5px;
     vertical-align: middle;
 }
 
@@ -314,39 +228,32 @@ CLIENT CARD
     background: #fcfbf8;
 }
 
-/* -------------------------------------
-   COLUMN WIDTHS & ALIGNMENTS
-------------------------------------- */
+/* COLUMN WIDTHS & ALIGNMENTS */
 
-/* Column 1: Service Name (Takes most space) */
 .service-table th:nth-child(1),
 .service-table td:nth-child(1) {
-    width: 34%;
+    width: 36%;
     text-align: left;
 }
 
-/* Column 2: Base Price */
 .service-table th:nth-child(2),
 .service-table td:nth-child(2) {
-    width: 18%;
+    width: 16%;
     text-align: center;
 }
 
-/* Column 3: Units */
 .service-table th:nth-child(3),
 .service-table td:nth-child(3) {
     width: 14%;
     text-align: center;
 }
 
-/* Column 4: Night Charge */
 .service-table th:nth-child(4),
 .service-table td:nth-child(4) {
     width: 16%;
     text-align: center;
 }
 
-/* Column 5: Total */
 .service-table th:nth-child(5),
 .service-table td:nth-child(5) {
     width: 18%;
@@ -358,281 +265,179 @@ CLIENT CARD
 }
 
 /* ===================================
-TOTALS
+   TOTALS
 =================================== */
 
-.totals{
-
-    display:flex;
-
-    justify-content:flex-end;
-
-    margin-bottom:48px;
-
+.totals {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
 }
 
-.totals-card{
-
-    width:420px;
-    max-width:100%;
-
-    border:1px solid var(--border);
-
-    border-radius:18px;
-
-    padding:28px;
-
+.totals-card {
+    width: 380px;
+    max-width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px 20px;
 }
 
-.total-row{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    margin-bottom:12px;
-
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 14px;
 }
 
-.total-row span{
-
-    color:#2c2626;
-
+.total-row span {
+    color: #2c2626;
 }
 
-.charge-note{
-
-    margin-top:-2px;
-
-    margin-bottom:10px;
-
-    padding-bottom:10px;
-
-    min-height:24px;
-
+.charge-note {
+    margin-top: -2px;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    min-height: 20px;
 }
 
-.charge-note span{
-
-    display:block;
-
-    font-style:normal;
-
-font-size:13px;
-
-line-height:1.4;
-
-color:#6B6257;
-
+.charge-note span {
+    display: block;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 1.3;
+    color: #6B6257;
 }
 
-
-.totals-card hr{
-
-    border:0;
-
-border-top:1px solid #ECE7DD;
-
-margin:24px 0;
-
+.totals-card hr {
+    border: 0;
+    border-top: 1px solid #ECE7DD;
+    margin: 12px 0;
 }
 
-.grand-total{
-
-    border-top:2px solid var(--gold);
-
-    padding-top:16px;
-
-    text-align:center;
-
+.grand-total {
+    border-top: 2px solid var(--gold);
+    padding-top: 12px;
+    text-align: center;
 }
 
-.grand-total-label{
-
-    font-size:12px;
-
-    text-transform:uppercase;
-
-    letter-spacing:3px;
-
-    color:#bf9314;
-
-    font-weight:700;
-
-    margin-bottom:12px;
-
+.grand-total-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #bf9314;
+    font-weight: 700;
+    margin-bottom: 6px;
 }
 
-.grand-total-value{
-
-    display:flex;
-
-    align-items:baseline;
-
-    justify-content:center;
-
-    gap:10px;
-
-    font-size:40px;
-
-    font-weight:800;
-
-    color:var(--charcoal);
-
-    line-height:1;
-
+.grand-total-value {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 8px;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--charcoal);
+    line-height: 1;
 }
-
 
 /* ==================================
-   PAYMENT
+   PAYMENT & FOOTER
 ================================== */
 
-.payment-section{
-
-    margin-top:30px;
-
+.payment-section {
+    margin-top: 10px;
 }
 
-.payment-divider{
-
-    width:100%;
-
-    height:2px;
-
-    background:var(--gold);
-
-    opacity:.5;
-
-    margin:0 auto 24px;
-
+.payment-divider {
+    width: 100%;
+    height: 2px;
+    background: var(--gold);
+    opacity: .5;
+    margin: 0 auto 16px;
 }
 
-.payment-content{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:48px;
-
-    margin-bottom:24px;
-
+.payment-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 36px;
+    margin-bottom: 12px;
 }
 
-.payment-info{
-
-    width:280px;
-
+.payment-info {
+    width: 280px;
 }
 
-.payment-help{
-
-    margin:18px 0 10px;
-
-    font-size:14px;
-
-color:#6B6257;
-
-    line-height:1.5;
-
+.payment-help {
+    margin: 8px 0 6px;
+    font-size: 13px;
+    color: #6B6257;
+    line-height: 1.4;
 }
 
-.payment-info h3{
-
-    margin:0;
-
-    font-size:22px;
-
-letter-spacing:.5px;
-
-    font-weight:700;
-
+.payment-info h3 {
+    margin: 0;
+    font-size: 20px;
+    letter-spacing: .5px;
+    font-weight: 700;
 }
 
 .payment-qr {
-
-    width: 140px;
-
-    height: 140px;
-
+    width: 100px;
+    height: 100px;
     object-fit: contain;
-
     display: block;
-
 }
 
-
-footer{
-
-    margin-top:56px;
-
-    padding-top:24px;
-
-    border-top:1px solid var(--border);
-
-    text-align:center;
-
-    color:#2c2626;
-
-    font-size:15px;
-
-    line-height:1.8;
-
+footer {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: #2c2626;
+    font-size: 12px;
+    line-height: 1.5;
 }
 
-@media print{
-
-    #download-btn{
-
-        display:none;
-
-    }
-
-}
-
-#download-btn{
-
-    position:fixed;
-
-    bottom:20px;
-
-left:50%;
-
-transform:translateX(-50%);
-    background:#8D6E63;
-
-    color:white;
-
-    border:none;
-
-    border-radius:999px;
-
-    padding:14px 22px;
-
-    font-size:15px;
-
-    font-weight:700;
-
-    cursor:pointer;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.15);
-
-    z-index:1000;
-
-}
-
-#download-btn:hover{
-
-    transform:translateX(-50%) translateY(-2px);
-
-}
 /* =====================================
-   A4 PRINT & PDF STYLES (FOOTER FIT)
+   FLOATING BUTTON & MOBILE VIEWPORT
+===================================== */
+
+#download-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #8D6E63;
+    color: white;
+    border: none;
+    border-radius: 999px;
+    padding: 14px 22px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
+    z-index: 1000;
+}
+
+#download-btn:hover {
+    transform: translateX(-50%) translateY(-2px);
+}
+
+/* Fits the A4 canvas proportionally on mobile screens without breaking print dimensions */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 0;
+    }
+    .invoice {
+        border-radius: 0;
+        border: none;
+    }
+}
+
+/* =====================================
+   PRINT MEDIA OVERRIDES
 ===================================== */
 
 @page {
@@ -642,11 +447,9 @@ transform:translateX(-50%);
 
 @media print {
     html, body {
-        width: 100% !important;
-        height: auto !important;
-        margin: 0 !important;
+        background: white !important;
         padding: 0 !important;
-        background: #ffffff !important;
+        margin: 0 !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
         color-adjust: exact !important;
@@ -657,104 +460,12 @@ transform:translateX(-50%);
     }
 
     .invoice {
-        width: 100% !important;
-        max-width: 210mm !important;
-        margin: 0 auto !important;
-        padding: 6mm 10mm !important; /* Slightly tighter top/bottom margin */
-        box-sizing: border-box !important;
         box-shadow: none !important;
         border: none !important;
         border-radius: 0 !important;
-    }
-
-    /* Header Spacing */
-    .header {
-        margin-bottom: 10px !important;
-    }
-
-    .logo img, .logo svg {
-        max-height: 55px !important;
-        width: auto !important;
-    }
-
-    /* Bill To Card Grid & Layout Fix */
-    .client-card {
-        margin-bottom: 10px !important;
-        padding: 8px 12px !important;
-    }
-
-    /* Move Address column to the left & widen its layout */
-    .client-details, 
-    .client-info, 
-    .client-card-grid {
-        display: grid !important;
-        grid-template-columns: 35% 65% !important; /* Gives 65% width to address column */
-        gap: 20px !important;
-    }
-
-    .address-details, 
-    .client-card .address-column,
-    #address {
-        font-size: 11px !important;
-        line-height: 1.4 !important;
-        width: 100% !important;
-    }
-
-    .client-card h3 {
-        font-size: 14.5px !important;
-        margin-top: 2px !important;
-        margin-bottom: 2px !important;
-    }
-
-    /* Services Table */
-    .services {
-        margin-bottom: 10px !important;
-    }
-
-    .service-table th,
-    .service-table td {
-        padding: 6px 8px !important;
-        font-size: 12px !important;
-    }
-
-    /* Totals Section */
-    .totals {
-        margin-bottom: 10px !important;
-    }
-
-    .totals-box {
-        padding: 8px 12px !important;
-    }
-
-    .totals-row {
-        font-size: 12px !important;
-        margin-bottom: 3px !important;
-    }
-
-    .totals-row.grand-total,
-    .grand-total,
-    #grand-total {
-        font-size: 18px !important;
-        font-weight: 700 !important;
-    }
-
-    /* Payment & Footer */
-    .payment-section {
-        margin-bottom: 4px !important;
-        padding-top: 4px !important;
-    }
-
-    .payment-qr {
-        max-height: 50px !important;
-        width: auto !important;
-    }
-
-    footer {
-        display: block !important;
-        margin-top: 3px !important;
-        padding-top: 4px !important;
-        font-size: 10px !important;
-        page-break-inside: avoid !important;
-        break-inside: avoid !important;
+        width: 210mm !important;
+        height: 297mm !important;
+        margin: 0 auto !important;
+        padding: 12mm 15mm !important;
     }
 }
