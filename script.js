@@ -1,6 +1,6 @@
-
 const workerUrl =
-  "https://pcp-invoice-api.team-petcarepeople.workers.dev";
+    "https://pcp-invoice-api.team-petcarepeople.workers.dev";
+
 function formatCurrency(value) {
 
     if (value === null || value === undefined || value === "") {
@@ -29,29 +29,26 @@ function formatDate(dateString) {
 
 }
 
-
-
 async function loadInvoice() {
 
-    const params = new URLSearchParams(window.location.search);
-
-    const bookingId = params.get("id");
+    const bookingId =
+        new URLSearchParams(window.location.search).get("id");
 
     if (!bookingId) {
 
-        console.error("Missing booking id.");
+        alert("Booking ID missing.");
 
         return;
 
     }
 
     const response = await fetch(
-        `${workerUrl}/?id=${bookingId}`
+        `${workerUrl}/?id=${encodeURIComponent(bookingId)}`
     );
 
     const data = await response.json();
 
-    console.log(data);
+    console.log("Invoice Data:", data);
 
     const booking = data.booking.fields;
     const client = data.client.fields;
@@ -60,109 +57,72 @@ async function loadInvoice() {
         .map(p => p.fields["Pet Name"])
         .join(", ");
 
-    // ---------- Replace placeholders ----------
+    // -------------------------
+    // Populate Invoice
+    // -------------------------
 
-    document.body.innerHTML = document.body.innerHTML
+    document.getElementById("invoice-number").textContent =
+        booking["Invoice Number"] || "";
 
-        .replaceAll("{{Client Name}}", client["Full Name"] || "")
+    document.getElementById("invoice-date").textContent =
+        formatDate();
 
-        .replaceAll("{{Phone}}", client["Phone"] || "")
+    document.getElementById("client-name").textContent =
+        client["Full Name"] || "";
 
-        .replaceAll(
-            "{{Address}}",
-            [
-                client["Address Line 2"],
-                client["Address Line 1"]
-            ]
-            .filter(Boolean)
-            .join("<br>")
-        )
+    document.getElementById("pets").textContent =
+        pets;
 
-        .replaceAll("{{Pets}}", pets)
+    document.getElementById("phone").textContent =
+        client["Phone"] || "";
 
-        .replaceAll(
-            "{{Invoice Number}}",
-            booking["Invoice Number"] || ""
-        )
-.replaceAll(
-    "{{Invoice Date}}",
-    formatDate()
-)
+    document.getElementById("address").innerHTML =
+        [
+            client["Address Line 2"],
+            client["Address Line 1"]
+        ]
+        .filter(Boolean)
+        .join("<br>");
 
+    document.getElementById("booking-line-total").textContent =
+        formatCurrency(booking["Booking Line Total"]);
 
-        .replaceAll(
-            "{{Booking Line Total}}",
-            formatCurrency(booking["Booking Line Total"])?? ""
-        )
+    document.getElementById("additional-charges").textContent =
+        formatCurrency(booking["Additional Charge"]);
 
-        .replaceAll(
-            "{{Additional Charges}}",
-            formatCurrency(booking["Additional Charge"]) ?? "-"
-        )
+    document.getElementById("additional-charge-notes").textContent =
+        booking["Additional Charge Notes"] || "";
 
-        .replaceAll(
-            "{{Additional Charge Notes}}",
-            booking["Additional Charge Notes"] ?? ""
-        )
+    document.getElementById("manual-discount").textContent =
+        formatCurrency(booking["Manual Discount"]);
 
-        .replaceAll(
-            "{{Manual Discount}}",
-            formatCurrency(booking["Manual Discount"])?? "-"
-        )
+    document.getElementById("grand-total").textContent =
+        formatCurrency(booking["Total"]);
 
-        .replaceAll(
-    "{{Total}}",
-    formatCurrency(booking["Total"]) ?? ""
-);
+    // -------------------------
+    // Hide Empty Rows
+    // -------------------------
 
-    // ---------- Build Services Table ----------
+    if (!booking["Additional Charge"]) {
 
-const tbody = document.querySelector("#services-body");
+        document.getElementById("additional-charge-row").style.display = "none";
+        document.getElementById("charge-note-row").style.display = "none";
 
-if (!tbody) return;
+    }
 
-tbody.innerHTML = "";
+    if (!booking["Manual Discount"]) {
 
-data.services.forEach(item => {
+        document.getElementById("discount-row").style.display = "none";
 
-    const service = item.service.fields;
-    const bookingLine = item.booking.fields;
+    }
 
-    const row = document.createElement("tr");
-
-    const serviceName = service["Service Name"];
-
-    const basePrice = formatCurrency(
-        bookingLine["Service Base Price"]?.[0]
-    );
-
-    const units = bookingLine["Number of Days"];
-
-    const nightCharge = bookingLine["Night Charge Display"];
-
-    const total = formatCurrency(
-        bookingLine["Line Subtotal"]
-    );
-
-    row.innerHTML = `
-        <td>${serviceName}</td>
-        <td>${basePrice}</td>
-        <td>${units}</td>
-        <td>${nightCharge}</td>
-        <td class="amount">${total}</td>
-    `;
-
-    tbody.appendChild(row);
-
-});
-
-
-loadInvoice();
-document
-.getElementById("download-btn")
-.addEventListener("click",()=>{
-
-    window.print();
-
-});
 }
+loadInvoice();
+
+document
+    .getElementById("download-btn")
+    .addEventListener("click", () => {
+
+        window.print();
+
+    });
