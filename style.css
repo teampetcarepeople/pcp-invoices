@@ -689,7 +689,7 @@ transform:translateX(-50%);
     .client-card-grid {
         display: grid !important;
         grid-template-columns: 35% 65% !important; /* Gives 65% width to address column */
-        gap: 10px !important;
+        gap: 20px !important;
     }
 
     .address-details, 
