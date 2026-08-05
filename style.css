@@ -24,11 +24,11 @@ body{
 
     color:var(--charcoal);
 
-    padding:24px;
-    display:flex;
+    padding:20px;
+    display:block;
     justify-content:center;
 
-    overflow-x:auto;
+    overflow:auto;
        -webkit-text-size-adjust:100%;
 
 
@@ -36,9 +36,11 @@ body{
 
 .invoice{
 
-    width:820px;
+    width:210mm;
 
-    margin:32px auto;
+    min-height:297mm;
+
+    margin:20px auto;
 
     background:white;
 
@@ -607,11 +609,7 @@ footer{
     }
 
 }
-#download-btn{
 
-        display:none;
-
-    }
 #download-btn{
 
     position:fixed;
