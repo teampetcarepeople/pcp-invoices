@@ -34,7 +34,7 @@
 
         <p class="eyebrow">INVOICE</p>
 
-        <h1>{{Invoice Number}}</h1>
+        <h1 id="invoice-number"</h1>
 
         <div class="invoice-meta">
 
@@ -42,8 +42,7 @@
 
                 <span>Date</span>
 
-                <strong>{{Invoice Date}}</strong>
-
+<strong id="invoice-date"></strong>
             </div>
 
         </div>
@@ -58,11 +57,9 @@
         BILL TO
     </div>
 
-    <h2>{{Client Name}}</h2>
-
+<h2 id="client-name"></h2>
     <p class="pets">
-        Parent of {{Pets}}
-    </p>
+Parent of <span id="pets"></span>    </p>
 
     <div class="client-grid">
 
@@ -70,16 +67,14 @@
 
             <label>Phone</label>
 
-            <p>{{Phone}}</p>
-
+<p id="phone"></p>
         </div>
 
         <div>
 
             <label>Address</label>
 
-            <p>{{Address}}</p>
-
+<p id="address"></p>
         </div>
 
     </div>
@@ -124,30 +119,26 @@
 
             <span>Subtotal</span>
 
-            <strong>{{Booking Line Total}}</strong>
-
+<strong id="booking-line-total"></strong>
         </div>
 
         <div class="total-row" id="additional-charge-row">
 
     <span>Additional Charges</span>
 
-    <strong>{{Additional Charges}}</strong>
-
+<strong id="additional-charges"></strong>
 </div>
 
 <div class="charge-note" id="charge-note-row">
 
-    <span>{{Additional Charge Notes}}</span>
-
+<span id="additional-charge-notes"></span>
 </div>
 
         <div class="total-row" id="discount-row">
 
             <span>Discount</span>
 
-            <strong>- {{Manual Discount}}</strong>
-
+<strong id="manual-discount"></strong>
         </div>
 
         <hr>
@@ -160,10 +151,7 @@
 
     </div>
 
-    <div class="grand-total-value">
-
-        {{Total}}
-
+<div class="grand-total-value" id="grand-total"></div>
     </div>
 
 </div>
