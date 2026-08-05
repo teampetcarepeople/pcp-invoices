@@ -116,16 +116,15 @@ async function loadInvoice() {
 
     // ---------- Build Services Table ----------
 
-    const tbody = document.querySelector("#services-body");
+const tbody = document.querySelector("#services-body");
 
-    if (!tbody) return;
+if (!tbody) return;
 
-    tbody.innerHTML = "";
+tbody.innerHTML = "";
 
-    data.services.forEach(item => {
+data.services.forEach(item => {
 
     const service = item.service.fields;
-
     const bookingLine = item.booking.fields;
 
     const row = document.createElement("tr");
@@ -152,15 +151,9 @@ async function loadInvoice() {
         <td class="amount">${total}</td>
     `;
 
-    servicesBody.appendChild(row);
+    tbody.appendChild(row);
 
 });
-
-        tbody.appendChild(row);
-
-    });
-
-}
 
 loadInvoice();
 document
