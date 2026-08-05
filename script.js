@@ -164,4 +164,3 @@ document
     window.print();
 
 });
-}
