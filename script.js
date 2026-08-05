@@ -135,3 +135,70 @@ async function loadInvoice() {
                 "none";
 
         }
+        // -------------------------
+        // Build Services Table
+        // -------------------------
+
+        const tbody = document.getElementById("services-body");
+
+        tbody.innerHTML = "";
+
+        data.services.forEach(item => {
+
+            const service = item.service.fields;
+            const bookingLine = item.booking.fields;
+
+            const row = document.createElement("tr");
+
+            const serviceName =
+                service["Service Name"] || "";
+
+            const basePrice =
+                formatCurrency(
+                    service["Base Price"]
+                );
+
+            const units =
+                bookingLine["Number of Days"] ?? "-";
+
+            const nightCharge =
+                bookingLine["Night Charge Display"] || "-";
+
+            const total =
+                formatCurrency(
+                    bookingLine["Line Subtotal"]
+                );
+
+            row.innerHTML = `
+                <td>${serviceName}</td>
+                <td>${basePrice}</td>
+                <td>${units}</td>
+                <td>${nightCharge}</td>
+                <td class="amount">${total}</td>
+            `;
+
+            tbody.appendChild(row);
+
+        });
+
+    }
+
+    catch (err) {
+
+        console.error(err);
+
+        alert(err.message);
+
+    }
+
+}
+
+loadInvoice();
+
+document
+    .getElementById("download-btn")
+    .addEventListener("click", () => {
+
+        window.print();
+
+    });
