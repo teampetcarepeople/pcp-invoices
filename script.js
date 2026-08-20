@@ -112,25 +112,47 @@ setElementText("invoice-date", formatDate());
         if (tbody) {
             tbody.innerHTML = "";
 
-            if (Array.isArray(data.services)) {
-                data.services.forEach(item => {
-                    const service = item.service?.fields || {};
-                    const bookingLine = item.booking?.fields || {};
+           if (Array.isArray(data.services)) {
+    data.services.forEach(item => {
+        const service = item.service?.fields || {};
+        const bookingLine = item.booking?.fields || {};
 
-                    const row = document.createElement("tr");
+        const row = document.createElement("tr");
 
-                    const serviceName = service["Service Name"] || service["Name"] || "";
-                    const basePrice = formatCurrency(service["Base Price"]);
-                    const units = bookingLine["Number of Days"] ?? bookingLine["Units"] ?? "-";
-                    const nightCharge = bookingLine["Night Charge Display"] || "-";
-                    const total = formatCurrency(bookingLine["Line Subtotal"]);
+        // Custom service if Custom Service Name exists
+        const isCustom = !!bookingLine["Custom Service Name"];
 
-                    row.innerHTML = `
-                        <td>${serviceName}</td>
-                        <td>${basePrice}</td>
-                        <td>${units}</td>
-                        <td>${nightCharge}</td>
-                        <td class="amount">${total}</td>
+        const serviceName = isCustom
+            ? bookingLine["Custom Service Name"]
+            : service["Service Name"] || service["Name"] || "";
+
+        const basePrice = isCustom
+            ? formatCurrency(bookingLine["Custom Rate"])
+            : formatCurrency(service["Base Price"]);
+
+        const units = isCustom
+            ? bookingLine["Custom Quantity"] ?? "-"
+            : bookingLine["Number of Days"] ?? bookingLine["Units"] ?? "-";
+
+        const nightCharge = isCustom
+            ? "-"
+            : bookingLine["Night Charge Display"] || "-";
+
+        const total = formatCurrency(
+            bookingLine["Line Subtotal"]
+        );
+
+        row.innerHTML = `
+            <td>${serviceName}</td>
+            <td>${basePrice}</td>
+            <td>${units}</td>
+            <td>${nightCharge}</td>
+            <td class="amount">${total}</td>
+        `;
+
+        tbody.appendChild(row);
+    });
+}
                     `;
 
                     tbody.appendChild(row);
