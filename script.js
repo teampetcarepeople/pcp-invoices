@@ -163,12 +163,16 @@ if (nightChargeHeader && !hasNightCharge) {
                     );
 
                     row.innerHTML = `
-                        <td>${serviceName}</td>
-                        <td>${rate}</td>
-                        <td>${units}</td>
-                        <td>${nightCharge}</td>
-                        <td class="amount">${total}</td>
-                    `;
+    <td>${serviceName}</td>
+    <td>${rate}</td>
+    <td>${units}</td>
+    ${
+        hasNightCharge
+            ? `<td>${nightCharge}</td>`
+            : ""
+    }
+    <td class="amount">${total}</td>
+`;
 
                     tbody.appendChild(row);
                 });
