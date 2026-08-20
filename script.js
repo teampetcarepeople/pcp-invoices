@@ -104,7 +104,16 @@ setElementText("invoice-date", formatDate());
             const discountRow = document.getElementById("discount-row");
             if (discountRow) discountRow.style.display = "none";
         }
+const nightChargeHeader = document.getElementById("night-charge-header");
 
+const hasNightCharge = Array.isArray(data.services) &&
+    data.services.some(item =>
+        item.booking?.fields?.["Night Charge Applicable?"] === true
+    );
+
+if (nightChargeHeader && !hasNightCharge) {
+    nightChargeHeader.style.display = "none";
+}
         // -------------------------
                // -------------------------
         // Build Services Table
