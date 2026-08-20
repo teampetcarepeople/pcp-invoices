@@ -234,7 +234,6 @@ p {
 .service-table th:nth-child(4),
 .service-table td:nth-child(4) {
     width: 16%;
-    text-align: center;
 }
 
 .service-table th:nth-child(5),
