@@ -159,10 +159,10 @@ setElementText("invoice-date", formatDate());
                 });
             }
         }
-catch (err) {
-        console.error("Invoice Loading Error:", err);
-        alert(`Error loading invoice: ${err.message}`);
-    }
+} catch (err) {
+    console.error("Invoice Loading Error:", err);
+}
+    
 }
 
 loadInvoice();
