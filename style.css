@@ -203,14 +203,6 @@ p {
     font-size: 15px;
     vertical-align: middle;
 }
-.service-table th:nth-child(2),
-.service-table td:nth-child(2),
-.service-table th:last-child {
-    text-align: right;
-}
-.service-table td:last-child {
-    text-align: right;
-}
 .service-table tbody tr {
     transition: .2s;
 }
@@ -253,6 +245,7 @@ p {
 
 .amount {
     font-weight: 700;
+    text-align: right;
 }
 
 /* ===================================
