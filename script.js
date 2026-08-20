@@ -106,58 +106,79 @@ setElementText("invoice-date", formatDate());
         }
 
         // -------------------------
+               // -------------------------
         // Build Services Table
         // -------------------------
         const tbody = document.getElementById("services-body");
+
         if (tbody) {
             tbody.innerHTML = "";
 
-           if (Array.isArray(data.services)) {
-    data.services.forEach(item => {
-        const service = item.service?.fields || {};
-        const bookingLine = item.booking?.fields || {};
+            if (Array.isArray(data.services)) {
+                data.services.forEach(item => {
+                    const service = item.service?.fields || {};
+                    const bookingLine = item.booking?.fields || {};
 
-        const row = document.createElement("tr");
+                    const row = document.createElement("tr");
 
-        // Custom service if Custom Service Name exists
-        const isCustom = !!bookingLine["Custom Service Name"];
+                    // A custom service has a Custom Service Name.
+                    const isCustom = Boolean(
+                        bookingLine["Custom Service Name"]
+                    );
 
-        const serviceName = isCustom
-            ? bookingLine["Custom Service Name"]
-            : service["Service Name"] || service["Name"] || "";
+                    // Service name
+                    const serviceName = isCustom
+                        ? bookingLine["Custom Service Name"]
+                        : service["Service Name"] || service["Name"] || "";
 
-        const basePrice = isCustom
-            ? formatCurrency(bookingLine["Custom Rate"])
-            : formatCurrency(service["Base Price"]);
+                    // Rate
+                    const rate = isCustom
+                        ? formatCurrency(bookingLine["Custom Rate"])
+                        : formatCurrency(service["Base Price"]);
 
-        const units = isCustom
-            ? bookingLine["Custom Quantity"] ?? "-"
-            : bookingLine["Number of Days"] ?? bookingLine["Units"] ?? "-";
+                    // Quantity
+                    const units = isCustom
+                        ? (bookingLine["Custom Quantity"] ?? "-")
+                        : (bookingLine["Number of Days"] ??
+                           bookingLine["Units"] ??
+                           "-");
 
-        const nightCharge = isCustom
-            ? "-"
-            : bookingLine["Night Charge Display"] || "-";
+                    // Night charge only applies to standard services.
+                    const nightCharge = isCustom
+                        ? "-"
+                        : (bookingLine["Night Charge Display"] || "-");
 
-        const total = formatCurrency(
-            bookingLine["Line Subtotal"]
-        );
+                    // Calculated line total
+                    const total = formatCurrency(
+                        bookingLine["Line Subtotal"]
+                    );
 
-        row.innerHTML = `
-            <td>${serviceName}</td>
-            <td>${basePrice}</td>
-            <td>${units}</td>
-            <td>${nightCharge}</td>
-            <td class="amount">${total}</td>
-        `;
+                    row.innerHTML = `
+                        <td>${serviceName}</td>
+                        <td>${rate}</td>
+                        <td>${units}</td>
+                        <td>${nightCharge}</td>
+                        <td class="amount">${total}</td>
+                    `;
 
-        tbody.appendChild(row);
-    });
-}
+                    tbody.appendChild(row);
+                });
+            }
         }
-} catch (err) {
-    console.error("Invoice Loading Error:", err);
+
+    } catch (err) {
+        console.error("Invoice Loading Error:", err);
+    }
 }
-    
+
+loadInvoice();
+
+const downloadBtn = document.getElementById("download-btn");
+
+if (downloadBtn) {
+    downloadBtn.addEventListener("click", () => {
+        window.print();
+    });
 }
 
 loadInvoice();
