@@ -189,8 +189,54 @@ loadInvoice();
 const downloadBtn = document.getElementById("download-btn");
 
 if (downloadBtn) {
-    downloadBtn.addEventListener("click", () => {
-        window.print();
+    downloadBtn.addEventListener("click", async () => {
+
+        const invoice = document.querySelector(".invoice");
+
+        if (!invoice) {
+            alert("Invoice content could not be found.");
+            return;
+        }
+
+        const invoiceNumber =
+            document.getElementById("invoice-number")?.textContent?.trim()
+            || "invoice";
+
+        const options = {
+            margin: 0,
+            filename: `${invoiceNumber}.pdf`,
+            image: {
+                type: "jpeg",
+                quality: 0.98
+            },
+            html2canvas: {
+                scale: 2,
+                useCORS: true
+            },
+            jsPDF: {
+                unit: "mm",
+                format: "a4",
+                orientation: "portrait"
+            }
+        };
+
+        try {
+            downloadBtn.disabled = true;
+            downloadBtn.textContent = "Generating PDF...";
+
+            await html2pdf()
+                .set(options)
+                .from(invoice)
+                .save();
+
+        } catch (err) {
+            console.error("PDF Generation Error:", err);
+            alert("Could not generate the invoice PDF.");
+
+        } finally {
+            downloadBtn.disabled = false;
+            downloadBtn.textContent = "Save Invoice PDF";
+        }
     });
 }
 
