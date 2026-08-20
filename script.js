@@ -181,11 +181,3 @@ if (downloadBtn) {
     });
 }
 
-loadInvoice();
-
-const downloadBtn = document.getElementById("download-btn");
-if (downloadBtn) {
-    downloadBtn.addEventListener("click", () => {
-        window.print();
-    });
-}
