@@ -153,11 +153,6 @@ setElementText("invoice-date", formatDate());
         tbody.appendChild(row);
     });
 }
-                    `;
-
-                    tbody.appendChild(row);
-                });
-            }
         }
 } catch (err) {
     console.error("Invoice Loading Error:", err);
